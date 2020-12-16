@@ -1,0 +1,8 @@
+{
+    "identifier": "com.telehack.TeleBASIC",
+    "name": "TeleBASIC",
+    "organization": "Telehack",
+    "description": "Limited syntax highlighting for TeleBASIC",
+    "version": "1.0",
+    "categories": ["languages"]
+}
