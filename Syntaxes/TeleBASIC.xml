@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="bas">
+    <meta>
+        <name>TeleBASIC</name>
+        <type>structured</type>
+        <preferred-file-extension>bas</preferred-file-extension>
+    </meta>
+
+    <detectors>
+        <extension priority="1.0">bas</extension>
+    </detectors>
+
+    <indentation>
+        <increase>
+            <!-- <expression>^\s/d\b$</expression> -->
+        </increase>
+        <decrease>
+            <expression></expression>
+        </decrease>
+    </indentation>
+
+    <comments>
+        <!-- <multiline> -->
+            <starts-with>
+                <expression>\brem\b|\bREM\b</expression>
+            </starts-with>
+            <ends-with>
+                <expression>$</expression>
+            </ends-with>
+        <!-- </multiline> -->
+    </comments>
+
+    <brackets>
+        <pair open="(" close=")" />
+    </brackets>
+
+    <surrounding-pairs>
+        <pair open="(" close=")" />
+        <pair open="&quot;" close="&quot;" />
+    </surrounding-pairs>
+
+    <scopes>
+        <!-- Strings -->
+        <scope name="bas.string.block" spell-check="false">
+            <starts-with>
+                <expression>&quot;</expression>
+            </starts-with>
+            <ends-with>
+                <expression>&quot;|$</expression>
+            </ends-with>
+        </scope>
+
+        <!-- Comments -->
+        <scope name="bas.comment.block" spell-check="true">
+            <starts-with>
+                <expression>\brem\b|\bREM\b</expression>
+            </starts-with>
+            <ends-with>
+                <expression>$</expression>
+            </ends-with>
+        </scope>
+
+        <!-- Line Numbers -->
+        <scope name="bas.processing.block" spell-check="false">
+            <starts-with>
+                <expression>^\s+?\d+</expression>
+            </starts-with>
+            <ends-with>
+                <expression>\b\s</expression>
+            </ends-with>
+        </scope>
+
+        <!-- Line Numbers with no leading space -->
+        <scope name="bas.processing.block" spell-check="false">
+            <starts-with>
+                <expression>^\d+</expression>
+            </starts-with>
+            <ends-with>
+                <expression>\b\s</expression>
+            </ends-with>
+        </scope>
+
+        <!-- <scope name="bas.processing.block">
+            <expression>^[\s+]?[a-zA-Z]+</expression>
+        </scope> -->
+
+        <!-- Functions -->
+        <scope name="bas.identifier.function">
+            <expression>print|PRINT</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>beep|BEEP</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>brk|BRK</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>clear|CLEAR</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>close|CLOSE</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>cls|CLS</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>color|COLOR</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>data|DATA</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>(def)\s(fn[a-zA-Z]+[\$|\%]?)</expression>
+            <capture number="1" name="bas.identifier.function" />
+            <capture number="2" name="bas.value.null" />
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>defdbl|DEFDBL</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>defint|DEFINT</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>defsng|DEFSNG</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>defstr|DEFSTR</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>dim|DIM</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>home|HOME</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>input|INPUT</expression>
+        </scope>
+
+        <scope name="bas.identifier.variable">
+            <expression>\b(let)\s+([a-zA-Z_][A-Za-z0-9_\$]*)</expression>
+            <capture number="1" name="bas.identifier.function" />
+            <capture number="2" name="bas.value.null" />
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>locate|LOCATE</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>new|NEW</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>open|OPEN</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>pclear0|PCLEAR0</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>pclear1|PCLEAR1</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>pmode0|PMODE0</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>poke|POKE</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>print|PRINT</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>randomize|RANDOMIZE</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>read|READ</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>restore|RESTORE</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>sleep|SLEEP</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>tron|TRON</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>troff|TROFF</expression>
+        </scope>
+        
+        <!-- Keywords -->
+        <scope name="bas.keyword">
+            <expression>(?i)\bif\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bor\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\band|not\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bthen\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\belse\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bfor\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bto\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bnext\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bend\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bstop\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\brun\b</expression>
+        </scope>
+
+        <scope name="bas.keyword">
+            <expression>(?i)\bren(umber)?\b</expression>
+        </scope>
+
+        <!-- More keywords -->
+        <scope name="bas.keyword">
+            <expression>(?i)((go(to|sub)|then)\s\d+)|return</expression>
+        </scope>
+
+        <!-- Builtins -->
+        <scope name="bas.value.null">
+            <expression>(?i)\b(arg|argv|bin|chr|date|dir|hex|inkey|left|mid|oct|polkey|right|space|spc|spa|str|string|tab|time|ups|user)\b\$</expression>
+        </scope>
+        
+        <!-- More Builtins -->
+        <scope name="bas.value.null">
+        
+        <expression>\b(?i)(abs|asc|atn|cint|cos|csng|exp|height|instr|int|itm|len|lin|log|log10|nint|num|peek|pos|rec|rnd|sgn|sin|sqr|sqrt|sys|tan|tim|timer|typ|width|val)\b</expression>
+        </scope>
+
+        <!-- Vars -->
+        <scope name="bas.value.null">
+            <expression>\w[%|$|!]?</expression>
+        </scope>
+
+    </scopes>
+
+    <collections>
+
+    </collections>
+</syntax>
