@@ -1,10 +1,10 @@
-This extension provides syntax highlighting for **TeleBASIC**.
+This extension provides syntax highlighting for **TeleBASIC** for [Nova](https://nova.app).
 
 ![TeleBASIC](https://feen.us/8nqflv.png)
 
 ## Language Support
 
-TeleBASIC currently supports the following features:
+The following features are currently supported:
 
 - Comments
 - Functions
