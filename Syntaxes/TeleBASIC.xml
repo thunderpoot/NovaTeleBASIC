@@ -53,7 +53,7 @@
         <!-- Comments -->
         <scope name="bas.comment.block" spell-check="true">
             <starts-with>
-                <expression>\brem\b|\bREM\b</expression>
+                <expression>\brem\b|'|\bREM\b</expression>
             </starts-with>
             <ends-with>
                 <expression>$</expression>
@@ -86,7 +86,15 @@
 
         <!-- Functions -->
         <scope name="bas.identifier.function">
-            <expression>print|PRINT</expression>
+            <expression>scratch|SCRATCH</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>th_exec|TH_EXEC</expression>
+        </scope>
+
+        <scope name="bas.identifier.function">
+            <expression>print|PRINT|\?|\&amp;</expression>
         </scope>
 
         <scope name="bas.identifier.function">
@@ -212,7 +220,7 @@
         <scope name="bas.identifier.function">
             <expression>troff|TROFF</expression>
         </scope>
-        
+
         <!-- Keywords -->
         <scope name="bas.keyword">
             <expression>(?i)\bif\b</expression>
@@ -271,10 +279,10 @@
         <scope name="bas.value.null">
             <expression>(?i)\b(arg|argv|bin|chr|date|dir|hex|inkey|left|mid|oct|polkey|right|space|spc|spa|str|string|tab|time|ups|user)\b\$</expression>
         </scope>
-        
+
         <!-- More Builtins -->
         <scope name="bas.value.null">
-        
+
         <expression>\b(?i)(abs|asc|atn|cint|cos|csng|exp|height|instr|int|itm|len|lin|log|log10|nint|num|peek|pos|rec|rnd|sgn|sin|sqr|sqrt|sys|tan|tim|timer|typ|width|val)\b</expression>
         </scope>
 
