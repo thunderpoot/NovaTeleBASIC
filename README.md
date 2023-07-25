@@ -12,4 +12,4 @@ The following features are currently supported:
 
 Support for completions is planned for a future update.
 
-See [basic.man](https://github.com/p85/basic.man/blob/master/basic.man) for a full syntax definition.
+See [The TeleBASIC Manual](https://github.com/telehack-foundation/.github/blob/main/basic.md) for a full syntax definition.
